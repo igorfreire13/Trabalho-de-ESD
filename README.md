@@ -37,9 +37,9 @@ As opções 9 a 11 são operações individuais (buscar/inserir/remover).
 
 ## Dados
 
-- `dataset_uvas_consolidado.csv` — dataset usado pelo programa (gerado a partir de
-  detecções YOLO do Roboflow).
-- `dataSet.py` — script que consolida os labels do Roboflow no CSV.
+- `dataset_uvas_consolidado.csv` — dataset usado pelo programa. Foi gerado a
+  partir das detecções YOLO (Roboflow), consolidando os arquivos de label em um
+  único CSV com `frame_id`. O processo está descrito no relatório.
 - `resultados_benchmark.csv` / `resultados_escalabilidade.csv` — saídas dos
   benchmarks (geradas pelo programa, usadas nos gráficos do relatório).
 
