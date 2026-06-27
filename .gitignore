@@ -1,0 +1,10 @@
+# Material de estudo pessoal (NAO faz parte da entrega)
+main_comentado.cpp.bak
+*.bak
+
+# Artefatos de compilacao temporarios (mantemos apenas sistema.exe)
+*.o
+sistema_mod.exe
+
+# Pasta do export do Roboflow (dados-fonte; o CSV consolidado ja esta no repo)
+Grapes.v19i.yolov8/
