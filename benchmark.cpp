@@ -527,7 +527,9 @@ void testeEscalabilidade()
         }
 
         // Repeticoes ADAPTATIVAS: a lista e O(n) (cara), AVL/Hash sao baratas.
-        const int REP_LENTO = 3000;
+        // A lista no N pequeno e rapida: precisa de muitas repeticoes p/ superar
+        // a resolucao do timer (~0.6ms); no N grande, poucas bastam.
+        const int REP_LENTO = max(300, 10000000 / N);
         const int REP_RAPIDO = 2000000;
         // volatile counter impede o compilador de hoistar chamadas puras
         auto medirBloco = [&](int reps, auto fn) -> double
@@ -586,8 +588,9 @@ void testeEscalabilidade()
     printf("  AVL:   " YEL "%.1fx" RST " (esperado ~%.1fx para O(log n))\n",
            r_avl, log2(100000.0) / log2(1000.0));
     printf("  Hash:  " GRN "%.1fx" RST " (esperado ~1x  para O(1))\n", r_hsh);
-    printf(DIM "  Nota: AVL e Hash sub-microsegundo = dados em cache L1. Diferenca\n"
-               "  real aparece com N>>1M ou acesso a disco (B-Tree vs lista).\n" RST);
+    printf(DIM "  A Lista cresce ALEM de 100x por efeito de cache: listas pequenas\n"
+               "  cabem em cache (rapido por no); listas grandes sofrem cache miss\n"
+               "  (lento por no). AVL/Hash ficam sub-microsegundo (cache L1).\n" RST);
 
     // EXPORTA para CSV (linha por N -> ideal para grafico de linha no relatorio)
     ofstream csv("resultados_escalabilidade.csv");
