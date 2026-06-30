@@ -14,19 +14,14 @@ de dados aplicadas a um dataset de detecções de cachos de uva (visão computac
 
 ## Organização do código
 
-| Arquivo | Responsabilidade |
-|---------|------------------|
-| `comum.h` | Constantes, macros, structs e globais compartilhados |
-| `util.h/.cpp` | Utilidades de terminal (cores, barras, entrada) |
-| `estruturas.h/.cpp` | As 6 estruturas de dados |
-| `analise.h/.cpp` | Estatística, histograma, análise espacial e ingestão |
-| `benchmark.h/.cpp` | Benchmarks, escalabilidade e teste de restrição |
-| `main.cpp` | Menu principal |
+Todo o código está em um único arquivo `main.cpp`, organizado em seções
+(constantes e structs, utilidades de terminal, as 6 estruturas de dados,
+estatística e análise espacial, benchmarks, e o menu principal).
 
 ## Como compilar e executar
 
 ```bash
-g++ -O2 -std=c++17 -o sistema util.cpp estruturas.cpp analise.cpp benchmark.cpp main.cpp
+g++ -O2 -std=c++17 -o sistema main.cpp
 ./sistema        # no Windows: sistema.exe
 ```
 
